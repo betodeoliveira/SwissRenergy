@@ -42,7 +42,7 @@ function configurateAnimation() {
 
 function columnPlay(column) {
     gsap.to(column, {scaleY: 1, duration: 0.5});
-    gsap.to(column, {y: "100%", duration: 0.5, delay: 10, onComplete: () => {
+    gsap.to(column, {y: "100%", duration: 0.5, delay: 8, onComplete: () => {
         setTimeout(() => {
             gsap.set(column, {scaleY: 0});
             gsap.set(column, {y: "0%"});
@@ -53,7 +53,7 @@ function columnPlay(column) {
 
 function linePlay(line) {
     gsap.to(line, {scaleX: 1, duration: 0.5});
-    gsap.to(line, {x: "100%", duration: 0.5, delay: 10, onComplete: () => {
+    gsap.to(line, {x: "100%", duration: 0.5, delay: 8, onComplete: () => {
         setTimeout(() => {
             gsap.set(line, {scaleX: 0});
             gsap.set(line, {x: "0%"});
