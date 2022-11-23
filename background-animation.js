@@ -15,10 +15,10 @@ ScrollTrigger.create({
             animationIsPlaying = true;
             configurateAnimation();
         }
-        gsap.to($(".page-background-layout"), {opacity: 1, duration: 1});
+        gsap.to($(".page-background-layout"), {opacity: 1, duration: 0.5});
     },
     onEnterBack: () => {
-        gsap.to($(".page-background-layout"), {opacity: 0, duration: 1});
+        gsap.to($(".page-background-layout"), {opacity: 0, duration: 0.5});
     }
 });
 

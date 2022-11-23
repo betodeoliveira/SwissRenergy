@@ -1,36 +1,41 @@
-$(".section_scroll-anim").each(function(index) {
-    gsap.set($(this), {'-webkit-filter':'grayscale(100%)'});
-    gsap.set($(this), {opacity: 0.2});
+$(".section_scroll-anim").each(function (index) {
+    // Configurate the section filter and opacity
+    gsap.set($(this), { '-webkit-filter': 'grayscale(100%)' });
+    gsap.set($(this), { opacity: 0.2 });
+    // Hide the section sufix
     let sectionSufix = $(this).find(".section_sufix");
-    gsap.set(sectionSufix, {opacity: 0});
-    gsap.set(sectionSufix, {x: "-2rem"});
+    gsap.set(sectionSufix, { opacity: 0 });
+    gsap.set(sectionSufix, { x: "-2rem" });
+    // Condigurate the scroll animation
     ScrollTrigger.create({
         trigger: $(this),
         start: "top center",
         end: "bottom center",
         onEnter: () => {
-            gsap.to($(this), {'-webkit-filter':'grayscale(0%)', duration: 0.5});
-            gsap.to($(this), {opacity: 1, duration: 0.5});
-            gsap.to(sectionSufix, {opacity: 1, duration: 0.5});
-            gsap.to(sectionSufix, {x: "0rem", duration: 0.5});
+            playOnEnter($(this), sectionSufix);
         },
         onEnterBack: () => {
-            gsap.to($(this), {'-webkit-filter':'grayscale(0%)', duration: 0.5});
-            gsap.to($(this), {opacity: 1, duration: 0.5});
-            gsap.to(sectionSufix, {opacity: 1, duration: 0.5});
-            gsap.to(sectionSufix, {x: "0rem", duration: 0.5});
+            playOnEnter($(this), sectionSufix);
         },
         onLeave: () => {
-            gsap.to($(this), {'-webkit-filter':'grayscale(10%)', duration: 0.5});
-            gsap.to($(this), {opacity: 0.2, duration: 0.5});
-            gsap.to(sectionSufix, {opacity: 0, duration: 0.5});
-            gsap.to(sectionSufix, {x: "2rem", duration: 0.5});
+            playOnLeave($(this), sectionSufix);
         },
         onLeaveBack: () => {
-            gsap.to($(this), {'-webkit-filter':'grayscale(10%)', duration: 0.5});
-            gsap.to($(this), {opacity: 0.2, duration: 0.5});
-            gsap.to(sectionSufix, {opacity: 0, duration: 0.5});
-            gsap.to(sectionSufix, {x: "-2rem", duration: 0.5});
+            playOnLeave($(this), sectionSufix);
         }
     });
 });
+
+function playOnEnter(section, sufix) {
+    gsap.to(section, { '-webkit-filter': 'grayscale(0%)', duration: 0.5 });
+    gsap.to(section, { opacity: 1, duration: 0.5 });
+    gsap.to(sufix, { opacity: 1, duration: 0.5 });
+    gsap.to(sufix, { x: "0rem", duration: 0.5 });
+}
+
+function playOnLeave(section, sufix) {
+    gsap.to(section, { '-webkit-filter': 'grayscale(10%)', duration: 0.5 });
+    gsap.to(section, { opacity: 0.2, duration: 0.5 });
+    gsap.to(sufix, { opacity: 0, duration: 0.5 });
+    gsap.to(sufix, { x: "2rem", duration: 0.5 });
+}
