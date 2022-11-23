@@ -1,4 +1,3 @@
-gsap.registerPlugin(ScrollTrigger);
 $(".section_scroll-anim").each(function(index) {
     gsap.set($(this), {'-webkit-filter':'grayscale(100%)'});
     gsap.set($(this), {opacity: 0.2});
