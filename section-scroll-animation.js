@@ -3,7 +3,7 @@ $(".section_scroll-anim").each(function (index) {
     gsap.set($(this), { '-webkit-filter': 'grayscale(100%)' });
     gsap.set($(this), { opacity: 0.2 });
     // Hide the section sufix
-    let sectionSufix = $(this).find(".section_sufix");
+    let sectionSufix = $(this).find(".section_prefix");
     gsap.set(sectionSufix, { opacity: 0 });
     gsap.set(sectionSufix, { x: "-2rem" });
     // Condigurate the scroll animation
