@@ -1,32 +1,12 @@
-// Hide the background
-// $(".page-background-layout").css("opacity", "0");
-
 // Saves if the animation started laying
 let animationIsPlaying = false;
 
-// This configuration 
+// Start playing
 if(!animationIsPlaying) {
     // console.log("Start playing");
     animationIsPlaying = true;
     configurateAnimation();
 }
-// The background will appear when the hero start scrolling out
-// ScrollTrigger.create({
-//     trigger: ".section_home-hero",
-//     start: "bottom center",
-//     end: "bottom center",
-//     onEnter: () => {
-//         if(!animationIsPlaying) {
-//             // console.log("Start playing");
-//             animationIsPlaying = true;
-//             configurateAnimation();
-//         }
-//         gsap.to($(".page-background-layout"), {opacity: 1, duration: 0.5});
-//     },
-//     onEnterBack: () => {
-//         gsap.to($(".page-background-layout"), {opacity: 0, duration: 0.5});
-//     }
-// });
 
 function configurateAnimation() {
     $(".page-background_column-fill").each(function(index) {
