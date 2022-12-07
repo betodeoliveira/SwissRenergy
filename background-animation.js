@@ -1,5 +1,5 @@
 // Hide the background
-$(".page-background-layout").css("opacity", "0");
+// $(".page-background-layout").css("opacity", "0");
 
 // Saves if the animation started laying
 let animationIsPlaying = false;
