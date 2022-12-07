@@ -39,3 +39,16 @@ function playOnLeave(section, sufix) {
     gsap.to(sufix, { opacity: 0, duration: 0.5 });
     gsap.to(sufix, { x: "2rem", duration: 0.5 });
 }
+
+// Listen for window resize and if it does refresh the trigger
+let resizeTimeoutId;
+const resizeObserver = new ResizeObserver(entries => {
+    // console.log('Body height changed');
+    clearTimeout(resizeTimeoutId);
+    resizeTimeoutId = setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 200);
+});
+
+// start observing a DOM node
+resizeObserver.observe(document.body);
